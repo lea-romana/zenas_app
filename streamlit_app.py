@@ -18,7 +18,7 @@ option = st.selectbox(
     'Pick a sweatsuit color or style:',
     pd_df["COLOR_OR_STYLE"])
 
-temp_df = pd_df[pd_df["COLOR_OR_STYLE"] == option]
+temp_df = pd_df[pd_df["COLOR_OR_STYLE"] == option].reset_index()
 
 product_caption = f'Our warm, confortable, {option} sweatsuit!'
 
