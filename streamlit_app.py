@@ -18,8 +18,15 @@ option = st.selectbox(
     'Pick a sweatsuit color or style:',
     pd_df["COLOR_OR_STYLE"])
 
-st.write(f'Our warm, confortable, {option} sweatsuit!')
+temp_df = pd_df[pd["COLOR_OR_STYLE"] == option]
 
+product_caption = f'Our warm, confortable, {option} sweatsuit!'
+
+# streamlit.image(
+#     df2[0],
+#     width=400,
+#     caption= product_caption
+# )
 
 st.dataframe(pd_df)
 st.stop()
