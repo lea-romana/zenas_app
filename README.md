@@ -1,3 +1,3 @@
-Streamlit app created during the [https://learn.snowflake.com/en/courses/uni-ess-dlkw/](Data Lake Workshop) Course.
+Streamlit app created during the [Data Lake Workshop](https://learn.snowflake.com/en/courses/uni-ess-dlkw/) Course.
 
-[https://zenasapp-lea.streamlit.app/](App link)
+[App link](https://zenasapp-lea.streamlit.app/)
