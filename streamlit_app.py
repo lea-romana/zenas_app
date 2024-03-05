@@ -28,7 +28,7 @@ product_caption = f'Our warm, confortable, {option} sweatsuit!'
 #     caption= product_caption
 # )
 
-st.dataframe(pd_df)
+st.dataframe(temp_df)
 st.stop()
 
 ingredients_list = st.multiselect(
