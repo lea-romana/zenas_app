@@ -2,30 +2,26 @@
 import streamlit as st
 from snowflake.snowpark.context import get_active_session
 from snowflake.snowpark.functions import col
-import pandas
-import requests
 
 # Write directly to the app
-st.title(":cup_with_straw: Customize Your Smoothie! :cup_with_straw:")
-st.write(
-    """Choose the fruits you want in your custom Smoothie!""")
+st.title("Zena's Amazing Athleisure Catalog")
 
-# option = st.selectbox(
-#     'What is your favorite fruit?',
-#     ('Banana', 'Strawberries', 'Peaches'))
-
-# st.write('Your favorite fruit is:', option)
-
-name_on_order = st.text_input('Name on Smoothie: ')
-st.write(f'The name on your Smoothie will be: {name_on_order}')
-
-session = get_active_session()
-my_df = session.table("smoothies.public.fruit_options").select(col("FRUIT_NAME"), col("SEARCH_ON"))
-# st.dataframe(data=my_df, use_container_width=True)
-
+# Connect to database
+cnx = st.connection("snowflake")
+session = cnx.session()
+my_df = session.table("zenas_athleisure_db.products.catalog_for_website").select(col("COLOR_OR_STYLE"), col("PRICE"), col("DIRECT_URL"), col("SIZE_LIST"), col("UPSELL_PRODUCT_DESC"))
 pd_df = my_df.to_pandas()
-# st.dataframe(pd_df)
-# st.stop()
+
+
+option = st.selectbox(
+    'Pick a sweatsuit color or style:',
+    pd_df["COLOR_OR_STYLE"])
+
+st.write(f'Our warm, confortable, {option} sweatsuit!')
+
+
+st.dataframe(pd_df)
+st.stop()
 
 ingredients_list = st.multiselect(
     'Choose up to 5 ingredients',
