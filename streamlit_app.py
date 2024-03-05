@@ -19,6 +19,7 @@ option = st.selectbox(
     pd_df["COLOR_OR_STYLE"])
 
 temp_df = pd_df[pd_df["COLOR_OR_STYLE"] == option].reset_index(drop = True)
+st.write(temp_df.loc[0]["DIRECT_URL])
 
 product_caption = f'Our warm, confortable, {option} sweatsuit!'
 
