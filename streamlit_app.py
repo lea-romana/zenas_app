@@ -22,7 +22,7 @@ temp_df = pd_df[pd_df["COLOR_OR_STYLE"] == option].reset_index(drop = True)
 
 product_caption = f'Our warm, confortable, {option} sweatsuit!'
 
-streamlit.image(
+st.image(
     temp_df.loc[0]["DIRECT_URL"],
     width=400,
     caption= product_caption
