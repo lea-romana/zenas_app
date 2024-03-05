@@ -2,7 +2,7 @@
 import streamlit as st
 from snowflake.snowpark.context import get_active_session
 from snowflake.snowpark.functions import col
-import pandas
+import pandas as pd
 
 # Write directly to the app
 st.title("Zena's Amazing Athleisure Catalog")
@@ -18,7 +18,7 @@ option = st.selectbox(
     'Pick a sweatsuit color or style:',
     pd_df["COLOR_OR_STYLE"])
 
-temp_df = pd_df[pd["COLOR_OR_STYLE"] == option]
+temp_df = pd_df[pd_df["COLOR_OR_STYLE"] == option]
 
 product_caption = f'Our warm, confortable, {option} sweatsuit!'
 
