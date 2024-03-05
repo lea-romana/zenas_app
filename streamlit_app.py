@@ -30,7 +30,7 @@ st.image(
 
 st.write("Price: ", temp_df.loc[0]["PRICE"])
 st.write("Available sizes: ", temp_df.loc[0]["SIZE_LIST"])
-st.write("Bonus: ", temp_df.loc[0]["UPSELL_PRODUCT_DESC"])
+st.write(temp_df.loc[0]["UPSELL_PRODUCT_DESC"])
 
 # st.dataframe(temp_df)
 # st.stop
